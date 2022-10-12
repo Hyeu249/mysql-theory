@@ -1,57 +1,155 @@
-*Notice:
-PART1(4):
--Uppercase: SQL Command
--Lowercase: human wrote
--Brackets: group
-PART2(7):
--,etc... means the previous statement can be multi
--* and followed by a number means they are a family(interchangeable)
-*Data_type:
--VARCHAR(225)
--CHAR(exact_length)
--INT
--DECIMAL(65,30)
--FLOAT(7)
--DOUBLE(15)
--DATE, TIME, DATETIME, TIMESTAMP
--YEAR(4)
-*Day and Time functions:
--DATEDIFF(date,date)
--DATE_ADD(DATE, INTEREVAL, expr unit) = date +/- INTERVAL expr unit
--CURDATE()
--CURTIME()
--NOW(), CURRENT_TIMESTAMP
--DATE_FORMAT(DOCS)
--DAYNAME(column_name), MONTHNAME(column_name)
--cast(value AS data_type)
-*Logical operators:
--Not Equal(!=)
--NOT LIKE
--Greater than(>)
--Less than(<)
--Greater Than Or Equal To(>=)
--Less Than Or Equal To(<=)
--AND = && 
--OR = ||
--NOT BETWEEN/ BETWEEN where_value AND
--NOT IN/ IN(desired_value, etc...).
-*CASE_STATEMENT:
--IF(true_statement, print_value, else_value)
--CASE
+# Convention:
+
+PART1: 
+
+- Uppercase: SQL Command
+
+- Lowercase: human wrote
+
+- Brackets: group
+
+PART2:
+
+- etc... means the previous statement can be multi
+
+- \* and followed by a number means they are a family(interchangeable)
+
+# Data Type:
+
+ ```mysql 
+ VARCHAR(225) 
+ ```
+ 
+```mysql
+CHAR(exact_length)
+```
+
+```mysql
+INT
+```
+
+```mysql
+DECIMAL(65,30)
+```
+
+```mysql
+FLOAT(7)
+```
+```mysql
+DOUBLE(m,d)
+```
+
+```mysql
+DATE, TIME, DATETIME, TIMESTAMP
+```
+
+```mysql
+YEAR(4)
+```
+
+# Day and Time functions:
+
+```mysql
+DATEDIFF(date,date)
+```
+
+```mysql
+DATE_ADD(DATE, INTEREVAL, expr unit) = date +/- INTERVAL expr unit
+```
+
+```mysql
+CURDATE()
+```
+
+```mysql
+CURTIME()
+```
+
+```mysql
+NOW(), CURRENT_TIMESTAMP
+```
+
+```mysql
+DATE_FORMAT(DOCS)
+```
+
+```mysql
+DAYNAME(column_name), MONTHNAME(column_name)
+```
+
+```mysql
+cast(value AS data_type)
+```
+
+# Logical operators:
+
+```mysql
+Not Equal(!=)
+```
+
+```mysql
+NOT LIKE
+```
+
+```mysql
+Greater than(>)
+```
+
+```mysql
+Less than(<)
+```
+
+```mysql
+Greater Than Or Equal To(>=)
+```
+
+```mysql
+Less Than Or Equal To(<=)
+```
+
+```mysql
+AND = &&
+```
+
+```mysql
+OR = ||
+```
+
+```mysql
+NOT BETWEEN/ BETWEEN where_value AND
+```
+
+```mysql
+NOT IN/ IN(desired_value, etc...)
+```
+
+# CASE_STATEMENT:
+
+- IF(true_statement, print_value, else_value)
+  
+  ```mysql
+  CASE
      WHEN column_name IS NULL THEN "print_value"
      WHEN column_name [=] when_value THEN "print_value" etc...
      ELSE "print_value"
- END AS column_name
--Numeric Functions:
--ROUND(value, round_number)
-*Notice:
--sFunction_value = column_name, text_string, string_function, COUNT(*)
-vd: SELECT CONCAT("hello", " ", "world") AS "Example"; 
-vd: SELECT CONCAT(SUBSTRING("hello", -3), " ", "world") AS "Example";
-*String Functions:
--CONCAT(sFunction_value, " ", sFunction_value)
--CONCAT_WS("-", sFunction_value, sFunction_value)
--SUBSTRING(sFunction_value, number, number/negative_number)
+  END AS column_name
+```
+  
+- Numeric Functions:
+ 
+- ROUND(value, round_number)
+
+**Notice:**
+
+sFunction_value = column_name, text_string, string_function, COUNT(*)
+
+- vd: SELECT CONCAT("hello", " ", "world") AS "Example"; 
+ 
+- vd: SELECT CONCAT(SUBSTRING("hello", -3), " ", "world") AS "Example";
+# String Functions:
+- CONCAT(sFunction_value, " ", sFunction_value)
+- CONCAT_WS("-", sFunction_value, sFunction_value)
+- SUBSTRING(sFunction_value, number, number/negative_number)
 -SUBSTR(sFunction_value, number, number/negative_number)
 -REPLACE(sFunction_value, replace_input, replace_output)
 -REVERSE(sFunction_value)
@@ -71,7 +169,7 @@ vd: SELECT CONCAT(SUBSTRING("hello", -3), " ", "world") AS "Example";
 
 
 
-*Syntax:
+# Syntax:
 PART1(11):
 -SHOW DATABASES;
 -CREATE DATABASE name;
@@ -133,20 +231,25 @@ PART3(2):
 
 
 
-*Subquery:
+# Subquery:
 -vd: SELECT * FROM books
      WHERE pages = (SELECT MIN(pages)
                     FROM books);
-*ONE TO ONE/Cross join:
+                    
+# ONE TO ONE/Cross join:
 -SELECT * FROM table_one, table_two;
-*Implicit inner join:
--SELECT * FROM table_one, table_two
+
+# Implicit inner join:
+
+# SELECT * FROM table_one, table_two
  WHERE table_one.column_name = table_two.column_name
-*ONE TO MANY:
+ 
+# ONE TO MANY:
 -SELECT * FROM  table_one
  LEFT/RIGHT JOIN table_two
  ON table_one.column_name = table_two.column_name
-*MANY TO MANY:
+ 
+# MANY TO MANY:
 -SELECT * FROM  table_one
  LEFT/RIGHT JOIN table_two
  ON table_one.column_name = table_two.column_name
